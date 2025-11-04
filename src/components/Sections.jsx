@@ -47,12 +47,12 @@ export default function Sections() {
               company="Defenxor (PT Defender Nusa Semesta)"
               location="South Jakarta, Jakarta, Indonesia · On-site"
               period="May 2024 – Present"
-              bullets=[
+              bullets={[
                 'Designed SIEM architecture and monitoring to cover critical security activities across environments.',
                 'Integrated security devices (Firewall, Antivirus, IPS/IDS) and SaaS/security platforms (Office 365, Microsoft Defender, CrowdStrike) via Syslog and APIs.',
                 'Normalized and enriched raw logs to improve correlation, detections, and alert fidelity.',
                 'Operationalized Wazuh HIDS: installation, agent onboarding, troubleshooting, SIEM integration, and incident-driven log analysis/correlation.',
-              ]
+              ]}
               stack={[
                 'SIEM', 'Syslog', 'API', 'Wazuh', 'Windows/Linux', 'Defender', 'CrowdStrike',
               ]}
@@ -64,9 +64,9 @@ export default function Sections() {
               company="AirNav Indonesia"
               location="Yogyakarta, Indonesia"
               period="Nov 2023 – Apr 2024"
-              bullets=[
+              bullets={[
                 'Developed a Python-based Teleprinter application to ingest AFTN messages and forward to operators and AMSC with reliability safeguards.',
-              ]
+              ]}
               stack={[ 'Python', 'Sockets', 'Linux' ]}
             />
           </div>
