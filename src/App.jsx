@@ -39,6 +39,7 @@ function Experience() {
               <li>Built a SIEM design to monitor security-related activities across the environment.</li>
               <li>Integrated security devices (Firewall, Antivirus, IPS/IDS) and cloud security/apps (Office365, Microsoft Defender, CrowdStrike) to SIEM via Syslog and API.</li>
               <li>Performed log normalization and correlation for improved threat detection and alerts.</li>
+              <li>Managed HIDS (Host Intrusion Detection System) using Wazuh, including installation, troubleshooting, integration with SIEM, and performing log analysis and incident correlation.</li>
             </ul>
           </article>
         </div>

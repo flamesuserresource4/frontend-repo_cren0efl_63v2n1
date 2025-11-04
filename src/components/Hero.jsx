@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Download, FileDown, User } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Download, User } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 function Avatar() {
   // Fallback avatar with initials
@@ -69,7 +70,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex justify-center md:justify-end"
           >
-            <Avatar />
+            <div className="w-full h-64 sm:h-80 md:h-[22rem] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/30 shadow-sm">
+              <Spline scene="https://prod.spline.design/4HIlOdlXYYkZW66z/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+            </div>
           </motion.div>
         </div>
       </div>
