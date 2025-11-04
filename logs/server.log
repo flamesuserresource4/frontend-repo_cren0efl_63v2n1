@@ -3,7 +3,9 @@
 > vite
 
 
-  VITE v5.4.20  ready in 251 ms
+  VITE v5.4.20  ready in 287 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.8.190:3000/
+10:05:36 AM [vite] Pre-transform error: Transform failed with 1 error:
+/home/workspace/src/components/Sections.jsx:50:22: ERROR: Expected "{" but found "["
