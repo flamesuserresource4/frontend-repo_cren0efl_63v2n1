@@ -25,7 +25,7 @@ export default function Sections() {
         </p>
       </motion.section>
 
-      {/* EXPERIENCE (Improved timeline + clearer structure) */}
+      {/* EXPERIENCE – redesigned vertical timeline for consistent alignment */}
       <motion.section
         id="experience"
         className="py-10"
@@ -37,12 +37,11 @@ export default function Sections() {
       >
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">EXPERIENCE</h2>
         <div className="mt-8 relative">
-          {/* timeline rail - only visible on md+ for better readability on mobile */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" aria-hidden />
+          {/* vertical rail */}
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" aria-hidden />
+
           <div className="space-y-10">
-            {/* Defenxor */}
             <ExperienceItem
-              side="left"
               role="Security Engineer"
               company="Defenxor (PT Defender Nusa Semesta)"
               location="South Jakarta, Jakarta, Indonesia · On-site"
@@ -53,13 +52,10 @@ export default function Sections() {
                 'Normalized and enriched raw logs to improve correlation, detections, and alert fidelity.',
                 'Operationalized Wazuh HIDS: installation, agent onboarding, troubleshooting, SIEM integration, and incident-driven log analysis/correlation.',
               ]}
-              stack={[
-                'SIEM', 'Syslog', 'API', 'Wazuh', 'Windows/Linux', 'Defender', 'CrowdStrike',
-              ]}
+              stack={['SIEM', 'Syslog', 'API', 'Wazuh', 'Windows/Linux', 'Defender', 'CrowdStrike']}
             />
-            {/* AirNav */}
+
             <ExperienceItem
-              side="right"
               role="Application Developer (Intern)"
               company="AirNav Indonesia"
               location="Yogyakarta, Indonesia"
@@ -67,7 +63,7 @@ export default function Sections() {
               bullets={[
                 'Developed a Python-based Teleprinter application to ingest AFTN messages and forward to operators and AMSC with reliability safeguards.',
               ]}
-              stack={[ 'Python', 'Sockets', 'Linux' ]}
+              stack={['Python', 'Sockets', 'Linux']}
             />
           </div>
         </div>
@@ -87,7 +83,7 @@ export default function Sections() {
         <CertificationsGrid />
       </motion.div>
 
-      {/* SKILLS (Improved: categorized + proficiency) */}
+      {/* SKILLS */}
       <SkillsSection />
 
       {/* HIGHLIGHTS */}
@@ -109,23 +105,26 @@ export default function Sections() {
   );
 }
 
-function ExperienceItem({ side = 'left', role, company, location, period, bullets = [], stack = [] }) {
-  const alignLeft = side === 'left';
+function ExperienceItem({ role, company, location, period, bullets = [], stack = [] }) {
   return (
-    <div className="relative md:grid md:grid-cols-2 md:gap-8">
-      {/* Meta */}
-      <div className={`pl-8 md:pl-0 ${alignLeft ? 'md:text-right' : ''}`}>
-        <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 px-3 py-1 text-xs font-medium">
+    <div className="relative pl-12">
+      {/* timeline dot */}
+      <span className="absolute left-3 top-2 block h-3 w-3 rounded-full bg-teal-500 ring-4 ring-teal-100 dark:ring-teal-900/40" aria-hidden />
+
+      {/* meta */}
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 px-3 py-1 font-medium">
           <Calendar className="h-3.5 w-3.5" aria-hidden />
           {period}
         </span>
-        <p className="mt-2 inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-          <MapPin className="h-4 w-4" aria-hidden /> {location}
-        </p>
+        <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+          <MapPin className="h-4 w-4" aria-hidden />
+          {location}
+        </span>
       </div>
 
-      {/* Card */}
-      <article className={`mt-4 md:mt-0 p-5 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm ${alignLeft ? '' : ''}`}>
+      {/* card */}
+      <article className="mt-3 p-5 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white inline-flex items-center gap-2">
           <Briefcase className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden /> {role}
         </h3>
