@@ -79,7 +79,7 @@ export default function Hero() {
         <div className="rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
           <h2 className="text-sm font-semibold tracking-widest text-teal-600">SUMMARY</h2>
           <p className="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
-            I'm a 20-year-old Computer Engineering and Network Specialist with 4 years of experience in networking, cybersecurity, and server management. I have strong communication skills and a solid history of completing technical projects. For the past year, I've worked as a Security Engineer, handling SIEM deployment, integrating various security devices or servers using both native tools and APIs, and normalizing raw logs for better threat detection. I'm known for being reliable, adaptable, and eager to keep learning and improving.
+            I'm a 20-year-old Computer Engineering and Network Specialist with 2 years of experience in networking, cybersecurity, and server management. I have strong communication skills and a solid history of completing technical projects. For the past year, I've worked as a Security Engineer, handling SIEM deployment, integrating various security devices or servers using both native tools and APIs, and normalizing raw logs for better threat detection. I'm known for being reliable, adaptable, and eager to keep learning and improving.
           </p>
         </div>
       </div>
