@@ -1,42 +1,56 @@
-import { Send, Phone, Mail } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ContactForm() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
+
+  const mailto = `mailto:arif@example.com?subject=${encodeURIComponent('Portfolio Contact from ' + form.name)}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`;
+
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Let's talk about security</h2>
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Have an opportunity or project in mind? Send a message.</p>
-          <form className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4" onSubmit={(e)=>e.preventDefault()} aria-label="Contact form">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
-              <input id="name" name="name" type="text" required className="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
-              <input id="email" name="email" type="email" required className="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
-            </div>
-            <div className="sm:col-span-2">
-              <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
-              <textarea id="message" name="message" rows={4} required className="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
-            </div>
-            <div className="sm:col-span-2 flex flex-wrap gap-3">
-              <button type="submit" className="inline-flex items-center gap-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 font-semibold">
-                <Send className="h-4 w-4"/> Send
-              </button>
-              <a href="/resume/arif-asyam-atsaruddin-resume.pdf" download className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Download CV</a>
-              <a href="mailto:arif.asyam.atsaruddin@gmail.com" className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"><Mail className="h-4 w-4"/> Email</a>
-              <a href="tel:+6289682259036" className="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"><Phone className="h-4 w-4"/> Call</a>
-            </div>
-          </form>
-        </div>
-        <aside className="rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
-          <h3 className="font-semibold text-slate-900 dark:text-white">Direct</h3>
-          <div className="mt-4 grid gap-2 text-sm text-slate-700 dark:text-slate-300">
-            <a href="mailto:arif.asyam.atsaruddin@gmail.com" className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-teal-600"/> arif.asyam.atsaruddin@gmail.com</a>
-            <a href="tel:+6289682259036" className="inline-flex items-center gap-2"><Phone className="h-4 w-4 text-teal-600"/> +62 896-8225-9036</a>
+    <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
+      <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8 bg-white dark:bg-neutral-900">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">Contact</h2>
+        <p className="mt-2 text-neutral-600 dark:text-neutral-400">Have a project or role in mind? Let’s connect.</p>
+        <form
+          className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setSent(true);
+            window.location.href = mailto;
+          }}
+        >
+          <input
+            type="text"
+            required
+            placeholder="Your name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-2 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <input
+            type="email"
+            required
+            placeholder="Email address"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-2 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <textarea
+            placeholder="Tell me about your needs"
+            rows={5}
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            className="md:col-span-2 w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-2 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <div className="md:col-span-2 flex items-center gap-3">
+            <button type="submit" className="inline-flex items-center rounded-md bg-indigo-600 text-white px-4 py-2 text-sm font-medium hover:bg-indigo-500">
+              Send message
+            </button>
+            {sent && (
+              <span className="text-sm text-neutral-600 dark:text-neutral-400">Opening your email client…</span>
+            )}
           </div>
-        </aside>
+        </form>
       </div>
     </section>
   );
