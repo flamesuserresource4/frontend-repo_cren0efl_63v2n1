@@ -23,7 +23,7 @@ export default function App() {
     <div className="min-h-screen bg-white dark:bg-neutral-950">
       <Header />
       <main>
-        <Hero photoUrl="https://imgur.com/a/efZQ8Ch" />
+        <Hero photoUrl="https://cdn.discordapp.com/attachments/936449675924500602/1435205596914651146/WhatsApp_Image_2025-11-04_at_10.52.35_dc88893d.jpg?ex=690b1edf&is=6909cd5f&hm=49b29794bfcaa75a0e1c5f72c210cbf4f184e8bcb85cf73fe7f6f9ba15fe8688&" />
         <Experience />
         <ContactForm />
       </main>
